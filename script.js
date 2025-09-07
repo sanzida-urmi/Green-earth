@@ -9,6 +9,8 @@ const my =document.getElementById("my_modal_1");
 
 const modalContainer = document.getElementById("modalContainer");
 
+const cartContainer =document.getElementById("cartContainer");
+
 const loadCategories = () => {
     fetch('https://openapi.programming-hero.com/api/categories')
         .then((res) => res.json())
@@ -68,18 +70,51 @@ const showAllTrees = (plants) => {
                         <h3 class="text-[#15803d] bg-[#dcfce7] px-2 py-1  rounded-full">${plant.category}</h3>
                         <h2 class="font-semibold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</h2>
                     </div>
-                    <button onclick="add(this)" class="cursor-pointer p-2 btn-block rounded-full bg-[#15803d]">Add to Cart</button>
+                    <button onclick="add(this.parentNode)" class="cursor-pointer p-2 btn-block rounded-full bg-[#15803d]">Add to Cart</button>
                 </div>
         `
     });
 }
 
 const add =(item)=>{
-console.log(item);
+let name = item.children[1].innerText;
+let price = item.children[3].children[1].innerText;
+
+cartContainer.innerHTML += `
+<div class="bg-[#f0fdf4] flex items-center justify-between p-2">
+                    <div>
+                        <h2 class="font-semibold">${name}</h2>
+                        <p class="text-[#8c8c8c] font-semibold">
+                            <i class="fa-solid fa-bangladeshi-taka-sign"></i>${price}
+                        </p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-xmark text-[#8c8c8c]"></i>
+                    </div>
+                </div>
+`
+total(price);
+
+}
+
+const priceArr = [];
+
+const total = (price) => {
+    priceArr.push(price);
+
+    let sum = 0;
+
+    for (const pp of priceArr) {
+        console.log(pp);
+
+        sum = sum + Number(pp);
+    }
+
+    console.log(sum);
+
 }
 
 const loadTreesByCategory =(id)=> {
-console.log(id);
 
 fetch(`https://openapi.programming-hero.com/api/category/${id}`)
         .then((res) => res.json())

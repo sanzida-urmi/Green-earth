@@ -14,7 +14,9 @@
 
     <!-- fonawesome link  -->
 
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -38,13 +40,14 @@
         </nav>
         <section class="bg-[#cff0dc]  grid grid-rows-1 lg:grid-cols-4 md:grid-cols-3 items-center ">
             <img class="hidden md:block" src="assets/hero-leaf1.png" alt="">
-           <div class="text-center lg:col-span-2 col-span-1  lg:space-y-4 md:space-y-1 space-y-3 ">
-             <h1 class="xl:text-5xl lg:text-3xl text-xl font-bold">Plant a Tree, Grow a Future</h1>
-            <p>Join our mission to plant 1 million trees and make the Earth greener for future
-               <br> generations.</p>
-               <button class="p-3 bg-[#facc15] rounded-full text-[#15803d]">Get Involved</button>
-           </div>
-           <img  class="hidden md:block" src="assets/hero-leaf2.png" alt="">
+            <div class="text-center lg:col-span-2 col-span-1  lg:space-y-4 md:space-y-1 space-y-3 ">
+                <h1 class="xl:text-5xl lg:text-3xl text-xl font-bold">Plant a Tree, Grow a Future</h1>
+                <p>Join our mission to plant 1 million trees and make the Earth greener for future
+                    <br> generations.
+                </p>
+                <button class="p-3 bg-[#facc15] rounded-full text-[#15803d]">Get Involved</button>
+            </div>
+            <img class="hidden md:block" src="assets/hero-leaf2.png" alt="">
         </section>
     </header>
     <main class="bg-[#f0fdf4]">
@@ -53,35 +56,49 @@
             <div class="col-span-1 ">
                 <h1 class="font-semibold text-xl mb-4">Categories</h1>
                 <div id="categoriesContainer" class="space-y-3">
-                    <p id="allTree" class="hover:bg-[#cff0dc] hover:rounded-sm cursor-pointer" onclick="loadAllTrees(); tr() ; mark(this)">All Trees</p>
+                    <p id="allTree" class="hover:bg-[#cff0dc] hover:rounded-sm cursor-pointer"
+                        onclick="loadAllTrees(); tr() ; mark(this)">All Trees</p>
                 </div>
             </div>
             <div id="plantContainer" class="col-span-3  grid grid-cols-3 gap-6">
 
 
             </div>
-            <div class="col-span-1 bg-red-600">ki</div>
+
+
+            <div class="col-span-1 bg-white rounded-sm p-4">
+                <h1 class="font-semibold text-xl mb-4 text-center">Your Cart</h1>
+               
+                <div id="cartContainer" class="space-y-4">
+                  
+                </div>
+
+                <div class="flex justify-between items-center font-semibold my-4">
+                    <h1>Total :</h1>
+                    <h1><i class="fa-solid fa-bangladeshi-taka-sign"></i>500</h1>
+                </div>
+            </div>
 
         </div>
     </main>
 
 
-    
-<dialog id="my_modal_1" class="modal">
-  <div class="modal-box max-h-[80vh] max-w-[60vh] overflow-hidden">
-    <div id="modalContainer">
-        
-    </div>
-    <div class="modal-action">
-      <form method="dialog">
-      
-        <button class="btn">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
 
-<!-- <p class="space-y-2"></p> -->
+    <dialog id="my_modal_1" class="modal">
+        <div class="modal-box max-h-[80vh] max-w-[60vh] overflow-hidden">
+            <div id="modalContainer">
+
+            </div>
+            <div class="modal-action">
+                <form method="dialog">
+
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- <p class="space-y-2"></p> -->
     <script src="script.js"></script>
 </body>
 
