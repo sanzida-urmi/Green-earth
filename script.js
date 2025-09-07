@@ -23,12 +23,23 @@ const showCategories = (categories) => {
     // console.log(categories);
     categories.forEach(category => {
         categoriesContainer.innerHTML += `
-<p id="${category.id}" onclick="loadTreesByCategory(${category.id})" class="hover:bg-[#cff0dc] hover:rounded-sm cursor-pointer">${category.category_name}</p>
+<p id="${category.id}" onclick="loadTreesByCategory(${category.id}) ; mark(this)" class="hover:bg-[#cff0dc] hover:rounded-sm cursor-pointer">${category.category_name}</p>
 `
     }
     )
 };
 
+
+const mark =(item) => {
+const allCategories = document.querySelectorAll("#categoriesContainer p");
+
+allCategories.forEach(category => {
+    category.classList.remove("bg-[#15803d]", "pointer-events-none")
+    
+});
+item.classList.add("bg-[#15803d]", "pointer-events-none");
+
+}
 
 const loadAllTrees = () => {
     fetch('https://openapi.programming-hero.com/api/plants')
@@ -57,10 +68,14 @@ const showAllTrees = (plants) => {
                         <h3 class="text-[#15803d] bg-[#dcfce7] px-2 py-1  rounded-full">${plant.category}</h3>
                         <h2 class="font-semibold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</h2>
                     </div>
-                    <button class="p-2 btn-block rounded-full bg-[#15803d]">Add to Cart</button>
+                    <button onclick="add(this)" class="cursor-pointer p-2 btn-block rounded-full bg-[#15803d]">Add to Cart</button>
                 </div>
         `
     });
+}
+
+const add =(item)=>{
+console.log(item);
 }
 
 const loadTreesByCategory =(id)=> {
@@ -76,7 +91,7 @@ fetch(`https://openapi.programming-hero.com/api/category/${id}`)
 }
 
 const openModal =(plant) => {
-    console.log(plant);
+    // console.log(plant);
     modalContainer.innerHTML = `
     <div class="space-y-3">
              <h2                  class="font-semibold">${plant.name}</h2>
@@ -93,7 +108,7 @@ const openModal =(plant) => {
     my.showModal();
 }
 const tr =()=> {
-    console.log("iuh")
+    // console.log("iuh")
 }
 loadCategories();
 loadAllTrees();
