@@ -11,6 +11,9 @@ const modalContainer = document.getElementById("modalContainer");
 
 const cartContainer =document.getElementById("cartContainer");
 
+const totalContainer = document.getElementById("totalContainer");
+
+
 const loadCategories = () => {
     fetch('https://openapi.programming-hero.com/api/categories')
         .then((res) => res.json())
@@ -89,12 +92,16 @@ cartContainer.innerHTML += `
                         </p>
                     </div>
                     <div>
-                        <i class="fa-solid fa-xmark text-[#8c8c8c]"></i>
+                        <i onclick="cross(this)" class="fa-solid fa-xmark text-[#8c8c8c] cursor-pointer"></i>
                     </div>
                 </div>
 `
 total(price);
 
+}
+
+const cross =(item) => {
+console.log(item);
 }
 
 const priceArr = [];
@@ -105,14 +112,21 @@ const total = (price) => {
     let sum = 0;
 
     for (const pp of priceArr) {
-        console.log(pp);
+        // console.log(pp);
 
         sum = sum + Number(pp);
     }
 
-    console.log(sum);
+    // console.log(sum);
 
+    totalContainer.innerHTML = `
+    <div class="flex justify-between items-center font-semibold my-4">
+                    <h1>Total :</h1>
+                    <h1><i class="fa-solid fa-bangladeshi-taka-sign"></i>${sum}</h1>
+                </div>
+    `
 }
+
 
 const loadTreesByCategory =(id)=> {
 
