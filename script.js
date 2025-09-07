@@ -80,9 +80,12 @@ const showAllTrees = (plants) => {
 }
 
 const add =(item)=>{
+    
 let name = item.children[1].innerText;
 let price = item.children[3].children[1].innerText;
 priceArr.push(price);
+
+alert(`${name} has been added to the cart`);
 
 cartContainer.innerHTML += `
 <div class="bg-[#f0fdf4] flex items-center justify-between p-2">
