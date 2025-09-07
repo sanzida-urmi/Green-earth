@@ -82,6 +82,7 @@ const showAllTrees = (plants) => {
 const add =(item)=>{
 let name = item.children[1].innerText;
 let price = item.children[3].children[1].innerText;
+priceArr.push(price);
 
 cartContainer.innerHTML += `
 <div class="bg-[#f0fdf4] flex items-center justify-between p-2">
@@ -92,7 +93,7 @@ cartContainer.innerHTML += `
                         </p>
                     </div>
                     <div>
-                        <i onclick="cross(this)" class="fa-solid fa-xmark text-[#8c8c8c] cursor-pointer"></i>
+                        <i onclick="cross(this.parentNode.parentNode)" class="fa-solid fa-xmark text-[#8c8c8c] cursor-pointer"></i>
                     </div>
                 </div>
 `
@@ -101,30 +102,41 @@ total(price);
 }
 
 const cross =(item) => {
-console.log(item);
+    let price = item.children[0].children[1].innerText;
+    const index = priceArr.indexOf(price);
+    priceArr.splice(index,1)
+console.log(priceArr);
+item.remove();
+
+total();
 }
 
 const priceArr = [];
 
-const total = (price) => {
-    priceArr.push(price);
+const total = () => {
 
     let sum = 0;
 
     for (const pp of priceArr) {
-        // console.log(pp);
 
         sum = sum + Number(pp);
     }
 
-    // console.log(sum);
+    if(sum === 0)
+    {
+        totalContainer.innerHTML = "";
+    }
 
-    totalContainer.innerHTML = `
+    else
+    {
+ totalContainer.innerHTML = `
     <div class="flex justify-between items-center font-semibold my-4">
                     <h1>Total :</h1>
                     <h1><i class="fa-solid fa-bangladeshi-taka-sign"></i>${sum}</h1>
                 </div>
     `
+    }
+   
 }
 
 
