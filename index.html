@@ -26,11 +26,12 @@
 
 
     <style>
-        * {
-            font-family: "Inter", sans-serif;
-            overflow-wrap: anywhere;
+        *{
+          font-family: "Inter", sans-serif;
+          overflow-wrap: anywhere;  
         }
     </style>
+    
 </head>
 
 <body>
@@ -63,6 +64,9 @@
             <img class="hidden md:block" src="assets/hero-leaf2.png" alt="">
         </section>
     </header>
+
+
+    
     <main class="bg-[#f0fdf4]">
         <h1 class="font-semibold text-2xl text-center py-12">Choose Your Trees</h1>
 
@@ -73,13 +77,15 @@
                 <h1 class="font-semibold text-xl mb-4">Categories</h1>
                 <div id="categoriesContainer" class="space-y-3">
                     <p id="allTree" class="hover:bg-[#cff0dc] hover:rounded-sm cursor-pointer"
-                        onclick="loadAllTrees(); tr() ; mark(this)">All Trees</p>
+                        onclick=" showSpinner(); loadAllTrees() ; mark(this)">All Trees</p>
                 </div>
             </div>
 
 
             <div id="plantContainer" class="xl:col-span-3  grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6  ">
 
+                <!-- <h1 class="p-4 col-span-full mx-auto">loading</h1> -->
+                <span class="loading loading-dots loading-xl col-span-full mx-auto"></span>
 
             </div>
 
@@ -170,6 +176,7 @@
     <footer class="bg-[#14532d] p-4 flex items-center justify-center">
         <p class="text-white">© 2025 Green Earth. All Rights Reserved.</p>
     </footer>
+
 
     <dialog id="my_modal_1" class="modal">
         <div class="modal-box max-h-[80vh] max-w-[60vh] overflow-hidden">

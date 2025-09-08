@@ -13,6 +13,7 @@ const cartContainer =document.getElementById("cartContainer");
 
 const totalContainer = document.getElementById("totalContainer");
 
+// const spinner = document.getElementById("spinner");
 
 const loadCategories = () => {
     fetch('https://openapi.programming-hero.com/api/categories')
@@ -55,7 +56,14 @@ const loadAllTrees = () => {
         })
 }
 
+
+const showSpinner = () => {
+    plantContainer.innerHTML = `
+     <span class="loading loading-dots loading-xl col-span-full mx-auto"></span>
+    `
+}
 const showAllTrees = (plants) => {
+    
     // console.log(plants)
      plantContainer.innerHTML = "";
     plants.forEach(plant => {
@@ -144,7 +152,7 @@ const total = () => {
 
 
 const loadTreesByCategory =(id)=> {
-
+showSpinner();
 fetch(`https://openapi.programming-hero.com/api/category/${id}`)
         .then((res) => res.json())
         .then((data) => showAllTrees(data.plants))
@@ -171,8 +179,6 @@ const openModal =(plant) => {
     `
     my.showModal();
 }
-const tr =()=> {
-    // console.log("iuh")
-}
+
 loadCategories();
 loadAllTrees();
