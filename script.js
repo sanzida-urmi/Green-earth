@@ -26,7 +26,6 @@ const loadCategories = () => {
 }
 
 const showCategories = (categories) => {
-    // console.log(categories);
     categories.forEach(category => {
         categoriesContainer.innerHTML += `
 <p id="${category.id}" onclick="loadTreesByCategory(${category.id}) ; mark(this)" class="hover:bg-[#cff0dc] hover:rounded-sm cursor-pointer">${category.category_name}</p>
@@ -64,10 +63,8 @@ const showSpinner = () => {
 }
 const showAllTrees = (plants) => {
     
-    // console.log(plants)
      plantContainer.innerHTML = "";
     plants.forEach(plant => {
-        // console.log(plant);
         plantContainer.innerHTML += `
         <div class="p-3 space-y-3 rounded-sm bg-white flex flex-col justify-between h-full">
                     <div class="w-full aspect-square overflow-hidden rounded-lg">
@@ -116,7 +113,6 @@ const cross =(item) => {
     let price = item.children[0].children[1].innerText;
     const index = priceArr.indexOf(price);
     priceArr.splice(index,1)
-console.log(priceArr);
 item.remove();
 
 total();
@@ -163,7 +159,6 @@ fetch(`https://openapi.programming-hero.com/api/category/${id}`)
 }
 
 const openModal =(plant) => {
-    // console.log(plant);
     modalContainer.innerHTML = `
     <div class="space-y-3">
              <h2                  class="font-semibold">${plant.name}</h2>
