@@ -18,13 +18,26 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        <!-- google font link   -->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+
+    <style>
+        * {
+            font-family: "Inter", sans-serif;
+            overflow-wrap: anywhere;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <nav class="bg-[#15803d] p-4">
             <div class="w-11/12 flex md:flex-row flex-col space-y-8  gap-4 justify-between mx-auto ">
-                <div class="font-semibold text-white">Green Earth</div>
+                <div class="font-semibold text-white">🌱Green Earth</div>
                 <div>
                     <ul class="flex flex-col  sm:flex-row space-y-1  gap-6 text-white">
                         <li><a href="">About</a></li>
@@ -40,7 +53,7 @@
         </nav>
         <section class="bg-[#cff0dc]  grid grid-rows-1 lg:grid-cols-4 md:grid-cols-3 items-center ">
             <img class="hidden md:block" src="assets/hero-leaf1.png" alt="">
-            <div class="text-center lg:col-span-2 col-span-1  lg:space-y-4 md:space-y-1 space-y-3 ">
+            <div class="text-center lg:col-span-2 col-span-1  lg:space-y-4 md:space-y-1 space-y-3 md:py-0 py-6">
                 <h1 class="xl:text-5xl lg:text-3xl text-xl font-bold">Plant a Tree, Grow a Future</h1>
                 <p>Join our mission to plant 1 million trees and make the Earth greener for future
                     <br> generations.
@@ -52,21 +65,27 @@
     </header>
     <main class="bg-[#f0fdf4]">
         <h1 class="font-semibold text-2xl text-center py-12">Choose Your Trees</h1>
-        <div class="w-11/12 mx-auto grid grid-cols-5 gap-6">
-            <div class="col-span-1 ">
+
+        <div class="w-11/12 mx-auto xl:grid  xl:grid-cols-5 xl:gap-6">
+
+
+            <div class="xl:col-span-1 text-center mx-auto xl:mx-0 ">
                 <h1 class="font-semibold text-xl mb-4">Categories</h1>
                 <div id="categoriesContainer" class="space-y-3">
                     <p id="allTree" class="hover:bg-[#cff0dc] hover:rounded-sm cursor-pointer"
                         onclick="loadAllTrees(); tr() ; mark(this)">All Trees</p>
                 </div>
             </div>
-            <div id="plantContainer" class="col-span-3  grid grid-cols-3 gap-6">
+
+
+            <div id="plantContainer" class="xl:col-span-3  grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6  ">
 
 
             </div>
 
 
-            <div class="col-span-1 bg-white rounded-sm p-4">
+            <div
+                class="xl:col-span-1 bg-white rounded-sm p-4 min-h-[500px] w-11/12 md:w-1/2  xl:w-full mx-auto xl:mx-0">
                 <h1 class="font-semibold text-xl mb-4 text-center">Your Cart</h1>
 
                 <div id="cartContainer" class="space-y-4">
@@ -84,12 +103,13 @@
     <section class="bg-[#f0fdf4]">
         <h1 class="font-semibold text-2xl text-center py-12">About the Campaign</h1>
 
-        <div class="flex mx-auto gap-7 pb-16 w-1/2 items-center">
+        <div class="flex flex-col xl:flex-row mx-auto xl:gap-16 xl:gap-7 pb-16 sm:w-10/12 w-full lg:w-1/2 items-center">
             <div class="flex-1">
-                <img class="w-full h-auto" src="assets/about.png" alt="">
+                <img class="xl:w-full w-10/12 mx-auto xl:mx-0 h-auto" src="assets/about.png" alt="">
             </div>
-            <div class="space-y-3 flex-1">
-                <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our
+            <div class="space-y-3 flex-1 ">
+                <p class="text-center">Green Earth is a global tree plantation initiative dedicated to fighting climate
+                    change. Since our
                     start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore
                     forests, create habitats for wildlife, and combat global warming.</p>
                 <ul class="list-disc pl-5">
@@ -104,7 +124,7 @@
 
     <section class="bg-[#cff0dc]">
         <h1 class="font-semibold text-2xl text-center py-12">Our Impact</h1>
-        <div class="grid grid-cols-3 gap-9 w-11/12 mx-auto pb-12">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-9 w-11/12 mx-auto pb-12">
             <div class="bg-white rounded-sm py-10 flex flex-col items-center">
                 <h2>500K+</h2>
                 <p>Trees Planted</p>
@@ -124,11 +144,26 @@
         <div class="pb-12">
             <h1 class="font-semibold text-2xl text-center py-12 text-white">Plant a Tree Today</h1>
 
-        <div class="bg-[#15803d] p-6 rounded-sm space-y-4 w-1/4 mx-auto">
-            <input type="text" placeholder="Your Name" class="input block" />
-            <input type="text" placeholder="Your Email Address" class="input block" />
-            <button onclick="add(this.parentNode)" class="cursor-pointer p-2  w-full rounded-full text-[#15803d] bg-[#facc15]">Add to Cart</button>
-        </div>
+            <div class="bg-[#15803d] p-6 rounded-sm space-y-4 xl:w-1/3 md:w-1/2 w-10/12 mx-auto">
+                <input type="text" placeholder="Your Name" class="input block w-full" />
+                <input type="text" placeholder="Your Email Address" class="input block w-full" />
+
+
+
+                <select name="" id="" class="bg-white p-2 w-full rounded-sm">
+                    <option value="" disabled selected>Number of trees</option>
+                    <option value="">1 Tree - $5</option>
+                    <option value="">1 Tree - $10</option>
+                    <option value="">1 Tree - $50</option>
+                </select>
+                <!-- </div> -->
+
+
+
+
+                <button onclick="add(this.parentNode)"
+                    class="cursor-pointer p-2  w-full rounded-full text-[#15803d] bg-[#facc15]">Donate Now</button>
+            </div>
         </div>
     </section>
 

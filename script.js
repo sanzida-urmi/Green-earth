@@ -69,7 +69,7 @@ const showAllTrees = (plants) => {
                     <h2 onclick='openModal(${JSON.stringify(plant)})'
                      class="font-semibold cursor-pointer">${plant.name}</h2>
                     <p>${plant.description}</p>
-                    <div class="flex justify-between">
+                    <div class="flex sm:flex-row flex-col justify-between">
                         <h3 class="text-[#15803d] bg-[#dcfce7] px-2 py-1  rounded-full">${plant.category}</h3>
                         <h2 class="font-semibold"><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</h2>
                     </div>
