@@ -160,10 +160,10 @@ fetch(`https://openapi.programming-hero.com/api/category/${id}`)
 
 const openModal =(plant) => {
     modalContainer.innerHTML = `
-    <div class="space-y-3">
-             <h2                  class="font-semibold">${plant.name}</h2>
+    <div class="space-y-2">
+             <h2 class="font-semibold">${plant.name}</h2>
 
-                     <div class= "w-[250px] h-[250px] mx-auto overflow-hidden rounded-lg">
+                     <div class= "w-max-[200px] h-[150px]   mx-auto overflow-hidden rounded-lg">
                         <img src="${plant.image}" alt="Jackfruit Tree" class="w-full h-full object-cover">
                     </div>
 
