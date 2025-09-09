@@ -5,11 +5,11 @@ const plantContainer = document.getElementById("plantContainer");
 const allTree = document.getElementById("allTree");
 
 
-const my =document.getElementById("my_modal_1");
+const my = document.getElementById("my_modal_1");
 
 const modalContainer = document.getElementById("modalContainer");
 
-const cartContainer =document.getElementById("cartContainer");
+const cartContainer = document.getElementById("cartContainer");
 
 const totalContainer = document.getElementById("totalContainer");
 
@@ -35,14 +35,14 @@ const showCategories = (categories) => {
 };
 
 
-const mark =(item) => {
-const allCategories = document.querySelectorAll("#categoriesContainer p");
+const mark = (item) => {
+    const allCategories = document.querySelectorAll("#categoriesContainer p");
 
-allCategories.forEach(category => {
-    category.classList.remove("bg-[#15803d]", "pointer-events-none")
-    
-});
-item.classList.add("bg-[#15803d]", "pointer-events-none");
+    allCategories.forEach(category => {
+        category.classList.remove("bg-[#15803d]", "pointer-events-none")
+
+    });
+    item.classList.add("bg-[#15803d]", "pointer-events-none");
 
 }
 
@@ -62,8 +62,8 @@ const showSpinner = () => {
     `
 }
 const showAllTrees = (plants) => {
-    
-     plantContainer.innerHTML = "";
+
+    plantContainer.innerHTML = "";
     plants.forEach(plant => {
         plantContainer.innerHTML += `
         <div class="p-3 space-y-3 rounded-sm bg-white flex flex-col justify-between h-full">
@@ -84,38 +84,38 @@ const showAllTrees = (plants) => {
     });
 }
 
-const add =(item)=>{
-    
-let name = item.children[1].innerText;
-let price = item.children[3].children[1].innerText;
-priceArr.push(price);
+const add = (item) => {
 
-alert(`${name} has been added to the cart`);
+    let name = item.children[1].innerText;
+    let price = item.children[3].children[1].innerText;
+    priceArr.push(price);
 
-cartContainer.innerHTML += `
+    alert(`${name} has been added to the cart`);
+
+    cartContainer.innerHTML += `
 <div class="bg-[#f0fdf4] flex items-center justify-between p-2">
                     <div>
                         <h2 class="font-semibold">${name}</h2>
                         <p class="text-[#8c8c8c] font-semibold">
-                            <i class="fa-solid fa-bangladeshi-taka-sign"></i>${price}
+                            <i class="fa-solid fa-bangladeshi-taka-sign"></i>${price} <i  class="fa-solid fa-xmark text-[#8c8c8c]"></i> 1
                         </p>
                     </div>
                     <div>
-                        <i onclick="cross(this.parentNode.parentNode)" class="fa-solid fa-xmark text-[#8c8c8c] cursor-pointer"></i>
+                        <i onclick="cross(this.parentNode.parentNode)" class="fa-solid fa-xmark text-[#f34646] cursor-pointer"></i>
                     </div>
                 </div>
 `
-total(price);
+    total(price);
 
 }
 
-const cross =(item) => {
+const cross = (item) => {
     let price = item.children[0].children[1].innerText;
     const index = priceArr.indexOf(price);
-    priceArr.splice(index,1)
-item.remove();
+    priceArr.splice(index, 1)
+    item.remove();
 
-total();
+    total();
 }
 
 const priceArr = [];
@@ -129,27 +129,25 @@ const total = () => {
         sum = sum + Number(pp);
     }
 
-    if(sum === 0)
-    {
+    if (sum === 0) {
         totalContainer.innerHTML = "";
     }
 
-    else
-    {
- totalContainer.innerHTML = `
+    else {
+        totalContainer.innerHTML = `
     <div class="flex justify-between items-center font-semibold my-4">
                     <h1>Total :</h1>
                     <h1><i class="fa-solid fa-bangladeshi-taka-sign"></i>${sum}</h1>
                 </div>
     `
     }
-   
+
 }
 
 
-const loadTreesByCategory =(id)=> {
-showSpinner();
-fetch(`https://openapi.programming-hero.com/api/category/${id}`)
+const loadTreesByCategory = (id) => {
+    showSpinner();
+    fetch(`https://openapi.programming-hero.com/api/category/${id}`)
         .then((res) => res.json())
         .then((data) => showAllTrees(data.plants))
         .catch((err) => {
@@ -158,7 +156,7 @@ fetch(`https://openapi.programming-hero.com/api/category/${id}`)
 
 }
 
-const openModal =(plant) => {
+const openModal = (plant) => {
     modalContainer.innerHTML = `
     <div class="space-y-2">
              <h2 class="font-semibold">${plant.name}</h2>
